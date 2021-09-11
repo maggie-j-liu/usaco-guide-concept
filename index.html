@@ -6,13 +6,14 @@
     <title>⚡️ Vite + Tailwind</title>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
   </head>
+
   <body>
     <nav class="dark:bg-gray-900 relative z-20">
       <div class="max-w-6xl px-2 lg:px-6 mx-auto">
         <div class="flex justify-between h-16">
           <div class="flex px-2 lg:px-0">
-            <a class="flex-shrink-0 flex items-center" href="/dashboard"
-              ><div class="block sm:hidden">
+            <a class="flex-shrink-0 flex items-center" href="/dashboard">
+              <div class="block sm:hidden">
                 <svg
                   class="inline-block h-10 w-10"
                   id="Layer_1"
@@ -142,8 +143,8 @@
                     >USACO Guide</span
                   >
                 </div>
-              </div></a
-            >
+              </div>
+            </a>
             <div class="hidden lg:ml-8 lg:flex space-x-8">
               <div>
                 <div class="relative h-full">
@@ -877,8 +878,38 @@
       </div>
     </nav>
 
-    <div class="relative min-h-screen -mt-24">
+    <div class="relative min-h-screen -mt-24 overflow-x-hidden">
       <div
+        class="
+          absolute
+          left-0
+          right-1/2
+          top-36
+          bottom-36
+          bg-sky-200
+          opacity-[35%]
+          animate-blob1
+          rounded-full
+          blur-2xl
+        "
+      ></div>
+
+      <div
+        class="
+          absolute
+          left-1/2
+          right-0
+          top-36
+          bottom-36
+          bg-purple-300
+          opacity-[35%]
+          animate-blob2
+          rounded-full
+          blur-2xl
+        "
+      ></div>
+
+      <!--<div
         class="
           absolute
           inset-0
@@ -888,7 +919,7 @@
           blur-3xl
           opacity-[35%]
         "
-      ></div>
+      ></div>-->
 
       <div class="h-72"></div>
 
