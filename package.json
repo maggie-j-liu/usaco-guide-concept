@@ -4,9 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "cross-env NODE_ENV=production vite build"
+    "build": "cross-env NODE_ENV=production vite build",
+    "prepare": "husky install"
   },
   "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.2.1",
+    "@tailwindcss/forms": "^0.3.3",
+    "@tailwindcss/typography": "^0.4.1",
     "vue": "^3.2.9",
     "vue-router": "^4.0.11"
   },
@@ -15,11 +19,17 @@
     "@vue/compiler-sfc": "^3.2.9",
     "autoprefixer": "^10.3.4",
     "cross-env": "^7.0.3",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
     "postcss": "^8.3.6",
+    "prettier": "^2.4.0",
     "tailwindcss": "^2.2.9",
     "vite": "^2.5.3"
   },
   "resolutions": {
     "postcss": "8.3.6"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }

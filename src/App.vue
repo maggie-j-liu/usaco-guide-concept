@@ -1,254 +1,871 @@
 <template>
-  <div>
-    <nav class="bg-gray-800">
-      <div class="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <div class="flex items-center">
-            <div class="flex-shrink-0">
-              <img
-                class="w-8 h-8"
-                src="/img/logos/workflow-mark-on-dark.svg"
-                alt="Workflow logo"
-              />
-            </div>
-            <div class="hidden md:block">
-              <div class="flex items-baseline ml-10">
-                <router-link
-                  v-for="(link, i) in links"
-                  :key="i"
-                  :to="link.to"
-                  custom
-                  v-slot="{ navigate, href, isExactActive }"
-                >
-                  <a
-                    :href="href"
-                    @click="navigate"
-                    class="px-3 py-2 text-sm font-medium rounded-md"
-                    :class="[
-                      isExactActive
-                        ? 'text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700'
-                        : 'text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700',
-                      i > 0 && 'ml-4',
-                    ]"
-                    >{{ link.text }}</a
-                  >
-                </router-link>
-              </div>
-            </div>
-          </div>
-          <div class="hidden md:block">
-            <div class="flex items-center ml-4 md:ml-6">
-              <button
-                class="p-1 text-gray-400 border-2 border-transparent rounded-full  hover:text-white focus:outline-none focus:text-white focus:bg-gray-700"
-                aria-label="Notifications"
+  <nav class="bg-white dark:bg-gray-900 shadow relative z-20">
+    <div class="max-w-6xl px-2 lg:px-6 mx-auto">
+      <div class="flex justify-between h-16">
+        <div class="flex px-2 lg:px-0">
+          <a class="flex-shrink-0 flex items-center" href="/dashboard"
+            ><div class="block sm:hidden">
+              <svg
+                class="inline-block h-10 w-10"
+                id="Layer_1"
+                data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 100 100"
               >
-                <svg
-                  class="w-6 h-6"
-                  stroke="currentColor"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
+                <g>
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                  />
-                </svg>
-              </button>
-
-              <!-- Profile dropdown -->
-              <div class="relative ml-3">
-                <div>
-                  <button
-                    class="flex items-center max-w-xs text-sm text-white rounded-full  focus:outline-none focus:shadow-solid"
-                    id="user-menu"
-                    aria-label="User menu"
-                    aria-haspopup="true"
-                    @click="showProfileMenu = !showProfileMenu"
+                    class="fill-current text-[#139] dark:text-blue-500"
+                    d="M50,5A45,45,0,1,1,5,50,45.05,45.05,0,0,1,50,5m0-5a50,50,0,1,0,50,50A50,50,0,0,0,50,0Z"
+                  ></path>
+                </g>
+                <line
+                  class="
+                    stroke-current stroke-[7px]
+                    text-[#001d4a]
+                    dark:text-blue-600
+                  "
+                  style="stroke-miterlimit: 10"
+                  x1="50"
+                  y1="27"
+                  x2="73.29"
+                  y2="65.64"
+                ></line>
+                <line
+                  class="
+                    stroke-current stroke-[7px]
+                    text-[#001d4a]
+                    dark:text-blue-600
+                  "
+                  style="stroke-miterlimit: 10"
+                  x1="50"
+                  y1="27"
+                  x2="28.56"
+                  y2="67"
+                ></line>
+                <circle
+                  class="fill-current text-[#139] dark:text-blue-500"
+                  cx="50"
+                  cy="27"
+                  r="10"
+                ></circle>
+                <circle
+                  class="fill-current text-[#139] dark:text-blue-500"
+                  cx="28.56"
+                  cy="67"
+                  r="10"
+                ></circle>
+                <circle
+                  class="fill-current text-[#139] dark:text-blue-500"
+                  cx="73.29"
+                  cy="65.64"
+                  r="10"
+                ></circle>
+              </svg>
+            </div>
+            <div class="hidden sm:block h-9">
+              <div
+                class="
+                  flex
+                  items-center
+                  space-x-2
+                  whitespace-nowrap
+                  flex-nowrap
+                "
+              >
+                <div class="h-9 w-9 flex-shrink-0">
+                  <svg
+                    class="inline-block"
+                    id="Layer_1"
+                    data-name="Layer 1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 100 100"
                   >
-                    <img
-                      class="w-8 h-8 rounded-full"
-                      src="/img/person1.jpeg"
-                      alt=""
-                    />
-                  </button>
+                    <g>
+                      <path
+                        class="fill-current text-[#139] dark:text-blue-500"
+                        d="M50,5A45,45,0,1,1,5,50,45.05,45.05,0,0,1,50,5m0-5a50,50,0,1,0,50,50A50,50,0,0,0,50,0Z"
+                      ></path>
+                    </g>
+                    <line
+                      class="
+                        stroke-current stroke-[7px]
+                        text-[#001d4a]
+                        dark:text-blue-600
+                      "
+                      style="stroke-miterlimit: 10"
+                      x1="50"
+                      y1="27"
+                      x2="73.29"
+                      y2="65.64"
+                    ></line>
+                    <line
+                      class="
+                        stroke-current stroke-[7px]
+                        text-[#001d4a]
+                        dark:text-blue-600
+                      "
+                      style="stroke-miterlimit: 10"
+                      x1="50"
+                      y1="27"
+                      x2="28.56"
+                      y2="67"
+                    ></line>
+                    <circle
+                      class="fill-current text-[#139] dark:text-blue-500"
+                      cx="50"
+                      cy="27"
+                      r="10"
+                    ></circle>
+                    <circle
+                      class="fill-current text-[#139] dark:text-blue-500"
+                      cx="28.56"
+                      cy="67"
+                      r="10"
+                    ></circle>
+                    <circle
+                      class="fill-current text-[#139] dark:text-blue-500"
+                      cx="73.29"
+                      cy="65.64"
+                      r="10"
+                    ></circle>
+                  </svg>
                 </div>
-
-                <transition
-                  enter-active-class="transition duration-100 ease-out"
-                  enter-from-class="transform scale-95 opacity-0"
-                  enter-to-class="transform scale-100 opacity-100"
-                  leave-active-class="transition duration-75 ease-in"
-                  leave-from-class="transform scale-100 opacity-100"
-                  leave-to-class="transform scale-95 opacity-0"
+                <span class="font-bold text-xl tracking-tight"
+                  >USACO Guide</span
                 >
-                  <div
-                    v-if="showProfileMenu"
-                    class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg "
+              </div>
+            </div></a
+          >
+          <div class="hidden lg:ml-8 lg:flex space-x-8">
+            <div>
+              <div class="relative h-full">
+                <button
+                  class="
+                    group
+                    text-gray-500
+                    inline-flex
+                    items-center
+                    h-full
+                    space-x-2
+                    border-b-2 border-transparent
+                    text-base
+                    leading-6
+                    font-medium
+                    hover:text-gray-900 hover:border-gray-300
+                    focus:outline-none focus:text-gray-900 focus:border-gray-300
+                    transition
+                    ease-in-out
+                    duration-150
+                    dark:text-dark-high-emphasis
+                    dark:hover:border-gray-500
+                    dark:focus:border-gray-500
+                  "
+                  id="headlessui-menu-button-1"
+                  type="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <span class="mt-0.5">Sections</span
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    class="
+                      text-gray-400
+                      h-5
+                      w-5
+                      mt-0.5
+                      group-hover:text-gray-500
+                      group-focus:text-gray-500
+                      transition
+                      ease-in-out
+                      duration-150
+                      dark:text-dark-med-emphasis
+                      dark:group-hover:text-dark-med-emphasis
+                      dark:group-focus:text-dark-med-emphasis
+                    "
+                    aria-hidden="true"
                   >
-                    <div
-                      class="py-1 bg-white rounded-md  ring-1 ring-black ring-opacity-5"
-                      role="menu"
-                      aria-orientation="vertical"
-                      aria-labelledby="user-menu"
-                    >
-                      <a
-                        href="#"
-                        class="block px-4 py-2 text-sm text-gray-700  hover:bg-gray-100"
-                        role="menuitem"
-                        >Your Profile</a
-                      >
-                      <a
-                        href="#"
-                        class="block px-4 py-2 text-sm text-gray-700  hover:bg-gray-100"
-                        role="menuitem"
-                        >Settings</a
-                      >
-                      <a
-                        href="#"
-                        class="block px-4 py-2 text-sm text-gray-700  hover:bg-gray-100"
-                        role="menuitem"
-                        >Sign out</a
-                      >
-                    </div>
-                  </div>
-                </transition>
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
               </div>
             </div>
-          </div>
-
-          <div class="flex -mr-2 md:hidden">
-            <!-- Mobile menu button -->
-            <button
-              class="inline-flex items-center justify-center p-2 text-gray-400 rounded-md  hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white"
-              @click="showMenu = !showMenu"
+            <a
+              class="
+                inline-flex
+                items-center
+                px-1
+                pt-0.5
+                border-b-2 border-transparent
+                text-base
+                font-medium
+                leading-6
+                text-gray-500
+                hover:text-gray-900 hover:border-gray-300
+                focus:outline-none focus:text-gray-900 focus:border-gray-300
+                dark:text-dark-high-emphasis
+                dark:hover:border-gray-500
+                dark:focus:border-gray-500
+                transition
+              "
+              href="/problems/"
+              >Problems</a
             >
-              <!-- Menu open: "hidden", Menu closed: "block" -->
-              <svg
-                class="block w-6 h-6"
-                stroke="currentColor"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-              <!-- Menu open: "block", Menu closed: "hidden" -->
-              <svg
-                class="hidden w-6 h-6"
-                stroke="currentColor"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+            <nav class="h-full">
+              <div class="h-full">
+                <button
+                  class="
+                    text-gray-500
+                    hover:border-gray-300
+                    focus:border-gray-300
+                    dark:hover:border-gray-500 dark:focus:border-gray-500
+                    group
+                    inline-flex
+                    items-center
+                    h-full
+                    border-b-2 border-transparent
+                    space-x-2
+                    text-base
+                    leading-6
+                    font-medium
+                    hover:text-gray-900
+                    focus:outline-none focus:text-gray-900
+                    transition
+                    ease-in-out
+                    duration-150
+                    dark:text-dark-high-emphasis
+                  "
+                  id="headlessui-popover-button-2"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  <span class="mt-0.5">Resources</span
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    class="
+                      text-gray-400
+                      mt-0.5
+                      ml-2
+                      h-5
+                      w-5
+                      group-hover:text-gray-500
+                      group-focus:text-gray-500
+                      dark:text-dark-med-emphasis
+                      dark:group-hover:text-dark-med-emphasis
+                      dark:group-focus:text-dark-med-emphasis
+                      transition
+                      ease-in-out
+                      duration-150
+                    "
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </nav>
+            <button
+              class="
+                cursor-pointer
+                inline-flex
+                items-center
+                px-1
+                border-b-2 border-transparent
+                text-base
+                font-medium
+                leading-6
+                text-gray-500
+                hover:text-gray-900 hover:border-gray-300
+                focus:outline-none focus:text-gray-900 focus:border-gray-300
+                dark:text-dark-high-emphasis
+                dark:hover:border-gray-500
+                dark:focus:border-gray-500
+                transition
+              "
+            >
+              Contact Us
             </button>
           </div>
         </div>
-      </div>
-
-      <!--
-      Mobile menu, toggle classes based on menu state.
-
-      Open: "block", closed: "hidden"
-    -->
-      <div class="md:hidden" :class="showMenu ? 'block' : 'hidden'">
-        <div class="px-2 pt-2 pb-3 sm:px-3">
-          <router-link
-            v-for="(link, i) in links"
-            :key="i"
-            :to="link.to"
-            custom
-            v-slot="{ navigate, href, isExactActive }"
+        <div class="flex-1 flex items-center justify-end px-2 lg:px-0 lg:ml-6">
+          <button
+            type="button"
+            class="
+              inline-flex
+              items-center
+              px-2
+              py-1
+              border border-transparent
+              rounded-md
+              text-gray-500
+              hover:text-gray-700
+              dark:text-dark-high-emphasis
+              focus:outline-none focus:ring-2 focus:ring-blue-500
+            "
           >
-            <a
-              :href="href"
-              @click="navigate().then(() => (showMenu = false))"
-              class="block px-3 py-2 text-base font-medium rounded-md"
-              :class="[
-                isExactActive
-                  ? 'text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700'
-                  : 'text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700',
-                i > 0 && 'mt-1',
-              ]"
-              >{{ link.text }}</a
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="h-5 w-5 text-gray-400 dark:text-gray-300"
+              aria-hidden="true"
             >
-          </router-link>
+              <path
+                fill-rule="evenodd"
+                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                clip-rule="evenodd"
+              ></path></svg
+            ><span class="ml-2 font-medium">Search</span>
+          </button>
         </div>
-        <div class="pt-4 pb-3 border-t border-gray-700">
-          <div class="flex items-center px-5">
-            <div class="flex-shrink-0">
-              <img
-                class="w-10 h-10 rounded-full"
-                src="/img/person1.jpeg"
-                alt=""
-              />
+        <div class="flex items-center lg:hidden">
+          <button
+            class="
+              MobileMenuButtonContainer-dsFtSa
+              bbDOxO
+              inline-flex
+              items-center
+              justify-center
+              p-2
+            "
+            aria-label="Main menu"
+            aria-expanded="false"
+          >
+            <svg
+              class="block h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path></svg
+            ><svg
+              class="hidden h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div
+          class="
+            hidden
+            lg:mx-3 lg:block
+            border-l border-gray-200
+            dark:border-gray-700
+            h-6
+            self-center
+          "
+        ></div>
+        <div class="hidden lg:flex lg:items-center">
+          <div class="relative inline-block text-left">
+            <div>
+              <button
+                class="
+                  flex
+                  text-sm
+                  border-2 border-transparent
+                  rounded-full
+                  focus:outline-none focus:border-white
+                  transition
+                "
+                id="headlessui-menu-button-4"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <span class="sr-only">Open user menu</span
+                ><img
+                  class="h-8 w-8 rounded-full"
+                  src="https://lh3.googleusercontent.com/a-/AOh14GhWFCsLfU92CZZwC8OomPdJ-34AcdqeEMXRQR9_jw"
+                  alt="User photo URL"
+                />
+              </button>
             </div>
-            <div class="ml-3">
-              <div class="text-base font-medium leading-none text-white">
-                Tom Cook
-              </div>
-              <div class="mt-1 text-sm font-medium leading-none text-gray-400">
-                tom@example.com
-              </div>
-            </div>
-          </div>
-          <div class="px-2 mt-3">
-            <a
-              href="#"
-              class="block px-3 py-2 text-base font-medium text-gray-400 rounded-md  hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-              >Your Profile</a
-            >
-            <a
-              href="#"
-              class="block px-3 py-2 mt-1 text-base font-medium text-gray-400 rounded-md  hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-              >Settings</a
-            >
-            <a
-              href="#"
-              class="block px-3 py-2 mt-1 text-base font-medium text-gray-400 rounded-md  hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-              >Sign out</a
-            >
           </div>
         </div>
       </div>
-    </nav>
-
-    <header class="bg-white shadow" v-if="$route.meta.title">
-      <div class="max-w-screen-xl px-4 py-6 mx-auto sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-bold leading-tight text-gray-900">
-          {{ $route.meta.title }}
-        </h1>
-      </div>
-    </header>
-
-    <div class="max-w-screen-xl py-6 mx-auto sm:px-6 lg:px-8">
-      <router-view />
     </div>
+    <div class="hidden lg:hidden">
+      <div class="pt-2 pb-3 space-y-1">
+        <a
+          class="
+            block
+            pl-3
+            pr-4
+            py-2
+            border-l-4 border-transparent
+            text-base
+            font-medium
+            text-gray-600
+            dark:text-dark-med-emphasis
+            hover:text-gray-800
+            dark:hover:text-dark-high-emphasis
+            hover:bg-gray-50
+            dark:hover:bg-gray-700
+            hover:border-gray-300
+            dark:hover:border-gray-500
+            focus:outline-none focus:text-gray-800 focus:bg-gray-50
+            dark:focus:bg-gray-700
+            focus:border-gray-300
+            transition
+          "
+          href="/dashboard/"
+          >Dashboard</a
+        ><a
+          class="
+            block
+            pl-3
+            pr-4
+            py-2
+            border-l-4 border-transparent
+            text-base
+            font-medium
+            text-gray-600
+            dark:text-dark-med-emphasis
+            hover:text-gray-800
+            dark:hover:text-dark-high-emphasis
+            hover:bg-gray-50
+            dark:hover:bg-gray-700
+            hover:border-gray-300
+            dark:hover:border-gray-500
+            focus:outline-none focus:text-gray-800 focus:bg-gray-50
+            dark:focus:bg-gray-700
+            focus:border-gray-300
+            transition
+          "
+          href="/general/"
+          >General</a
+        ><a
+          class="
+            block
+            pl-3
+            pr-4
+            py-2
+            border-l-4 border-transparent
+            text-base
+            font-medium
+            text-gray-600
+            dark:text-dark-med-emphasis
+            hover:text-gray-800
+            dark:hover:text-dark-high-emphasis
+            hover:bg-gray-50
+            dark:hover:bg-gray-700
+            hover:border-gray-300
+            dark:hover:border-gray-500
+            focus:outline-none focus:text-gray-800 focus:bg-gray-50
+            dark:focus:bg-gray-700
+            focus:border-gray-300
+            transition
+          "
+          href="/bronze/"
+          >Bronze</a
+        ><a
+          class="
+            block
+            pl-3
+            pr-4
+            py-2
+            border-l-4 border-transparent
+            text-base
+            font-medium
+            text-gray-600
+            dark:text-dark-med-emphasis
+            hover:text-gray-800
+            dark:hover:text-dark-high-emphasis
+            hover:bg-gray-50
+            dark:hover:bg-gray-700
+            hover:border-gray-300
+            dark:hover:border-gray-500
+            focus:outline-none focus:text-gray-800 focus:bg-gray-50
+            dark:focus:bg-gray-700
+            focus:border-gray-300
+            transition
+          "
+          href="/silver/"
+          >Silver</a
+        ><a
+          class="
+            block
+            pl-3
+            pr-4
+            py-2
+            border-l-4 border-transparent
+            text-base
+            font-medium
+            text-gray-600
+            dark:text-dark-med-emphasis
+            hover:text-gray-800
+            dark:hover:text-dark-high-emphasis
+            hover:bg-gray-50
+            dark:hover:bg-gray-700
+            hover:border-gray-300
+            dark:hover:border-gray-500
+            focus:outline-none focus:text-gray-800 focus:bg-gray-50
+            dark:focus:bg-gray-700
+            focus:border-gray-300
+            transition
+          "
+          href="/gold/"
+          >Gold</a
+        ><a
+          class="
+            block
+            pl-3
+            pr-4
+            py-2
+            border-l-4 border-transparent
+            text-base
+            font-medium
+            text-gray-600
+            dark:text-dark-med-emphasis
+            hover:text-gray-800
+            dark:hover:text-dark-high-emphasis
+            hover:bg-gray-50
+            dark:hover:bg-gray-700
+            hover:border-gray-300
+            dark:hover:border-gray-500
+            focus:outline-none focus:text-gray-800 focus:bg-gray-50
+            dark:focus:bg-gray-700
+            focus:border-gray-300
+            transition
+          "
+          href="/plat/"
+          >Platinum</a
+        ><a
+          class="
+            block
+            pl-3
+            pr-4
+            py-2
+            border-l-4 border-transparent
+            text-base
+            font-medium
+            text-gray-600
+            dark:text-dark-med-emphasis
+            hover:text-gray-800
+            dark:hover:text-dark-high-emphasis
+            hover:bg-gray-50
+            dark:hover:bg-gray-700
+            hover:border-gray-300
+            dark:hover:border-gray-500
+            focus:outline-none focus:text-gray-800 focus:bg-gray-50
+            dark:focus:bg-gray-700
+            focus:border-gray-300
+            transition
+          "
+          href="/adv/"
+          >Advanced</a
+        ><a
+          class="
+            block
+            pl-3
+            pr-4
+            py-2
+            border-l-4 border-transparent
+            text-base
+            font-medium
+            text-gray-600
+            dark:text-dark-med-emphasis
+            hover:text-gray-800
+            dark:hover:text-dark-high-emphasis
+            hover:bg-gray-50
+            dark:hover:bg-gray-700
+            hover:border-gray-300
+            dark:hover:border-gray-500
+            focus:outline-none focus:text-gray-800 focus:bg-gray-50
+            dark:focus:bg-gray-700
+            focus:border-gray-300
+            transition
+          "
+          href="/problems/"
+          >Problems</a
+        ><a
+          class="
+            block
+            pl-3
+            pr-4
+            py-2
+            border-l-4 border-transparent
+            text-base
+            font-medium
+            text-gray-600
+            dark:text-dark-med-emphasis
+            hover:text-gray-800
+            dark:hover:text-dark-high-emphasis
+            hover:bg-gray-50
+            dark:hover:bg-gray-700
+            hover:border-gray-300
+            dark:hover:border-gray-500
+            focus:outline-none focus:text-gray-800 focus:bg-gray-50
+            dark:focus:bg-gray-700
+            focus:border-gray-300
+            transition
+          "
+          href="/groups"
+          >Groups</a
+        ><a
+          href="https://forum.usaco.guide/"
+          target="_blank"
+          rel="noreferrer"
+          class="
+            block
+            pl-3
+            pr-4
+            py-2
+            border-l-4 border-transparent
+            text-base
+            font-medium
+            text-gray-600
+            dark:text-dark-med-emphasis
+            hover:text-gray-800
+            dark:hover:text-dark-high-emphasis
+            hover:bg-gray-50
+            dark:hover:bg-gray-700
+            hover:border-gray-300
+            dark:hover:border-gray-500
+            focus:outline-none focus:text-gray-800 focus:bg-gray-50
+            dark:focus:bg-gray-700
+            focus:border-gray-300
+            transition
+          "
+          >Forum</a
+        ><a
+          href="https://ide.usaco.guide/"
+          target="_blank"
+          rel="noreferrer"
+          class="
+            block
+            pl-3
+            pr-4
+            py-2
+            border-l-4 border-transparent
+            text-base
+            font-medium
+            text-gray-600
+            dark:text-dark-med-emphasis
+            hover:text-gray-800
+            dark:hover:text-dark-high-emphasis
+            hover:bg-gray-50
+            dark:hover:bg-gray-700
+            hover:border-gray-300
+            dark:hover:border-gray-500
+            focus:outline-none focus:text-gray-800 focus:bg-gray-50
+            dark:focus:bg-gray-700
+            focus:border-gray-300
+            transition
+          "
+          >IDE</a
+        ><a
+          href="https://joincpi.org/classes"
+          target="_blank"
+          rel="noreferrer"
+          class="
+            block
+            pl-3
+            pr-4
+            py-2
+            border-l-4 border-transparent
+            text-base
+            font-medium
+            text-gray-600
+            dark:text-dark-med-emphasis
+            hover:text-gray-800
+            dark:hover:text-dark-high-emphasis
+            hover:bg-gray-50
+            dark:hover:bg-gray-700
+            hover:border-gray-300
+            dark:hover:border-gray-500
+            focus:outline-none focus:text-gray-800 focus:bg-gray-50
+            dark:focus:bg-gray-700
+            focus:border-gray-300
+            transition
+          "
+          >Classes</a
+        ><a
+          href="https://joincpi.org/clubs"
+          target="_blank"
+          rel="noreferrer"
+          class="
+            block
+            pl-3
+            pr-4
+            py-2
+            border-l-4 border-transparent
+            text-base
+            font-medium
+            text-gray-600
+            dark:text-dark-med-emphasis
+            hover:text-gray-800
+            dark:hover:text-dark-high-emphasis
+            hover:bg-gray-50
+            dark:hover:bg-gray-700
+            hover:border-gray-300
+            dark:hover:border-gray-500
+            focus:outline-none focus:text-gray-800 focus:bg-gray-50
+            dark:focus:bg-gray-700
+            focus:border-gray-300
+            transition
+          "
+          >Clubs</a
+        ><a
+          href="https://joincpi.org/contests"
+          target="_blank"
+          rel="noreferrer"
+          class="
+            block
+            pl-3
+            pr-4
+            py-2
+            border-l-4 border-transparent
+            text-base
+            font-medium
+            text-gray-600
+            dark:text-dark-med-emphasis
+            hover:text-gray-800
+            dark:hover:text-dark-high-emphasis
+            hover:bg-gray-50
+            dark:hover:bg-gray-700
+            hover:border-gray-300
+            dark:hover:border-gray-500
+            focus:outline-none focus:text-gray-800 focus:bg-gray-50
+            dark:focus:bg-gray-700
+            focus:border-gray-300
+            transition
+          "
+          >Contests</a
+        ><a
+          href="https://joincpi.org/workshop"
+          target="_blank"
+          rel="noreferrer"
+          class="
+            block
+            pl-3
+            pr-4
+            py-2
+            border-l-4 border-transparent
+            text-base
+            font-medium
+            text-gray-600
+            dark:text-dark-med-emphasis
+            hover:text-gray-800
+            dark:hover:text-dark-high-emphasis
+            hover:bg-gray-50
+            dark:hover:bg-gray-700
+            hover:border-gray-300
+            dark:hover:border-gray-500
+            focus:outline-none focus:text-gray-800 focus:bg-gray-50
+            dark:focus:bg-gray-700
+            focus:border-gray-300
+            transition
+          "
+          >Workshops</a
+        ><button
+          class="
+            block
+            w-full
+            text-left
+            pl-3
+            pr-4
+            py-2
+            border-l-4 border-transparent
+            text-base
+            font-medium
+            text-gray-600
+            dark:text-dark-med-emphasis
+            hover:text-gray-800
+            dark:hover:text-dark-high-emphasis
+            hover:bg-gray-50
+            dark:hover:bg-gray-700
+            hover:border-gray-300
+            dark:hover:border-gray-500
+            focus:outline-none focus:text-gray-800 focus:bg-gray-50
+            dark:focus:bg-gray-700
+            focus:border-gray-300
+            transition
+          "
+        >
+          Contact Us</button
+        ><a
+          class="
+            block
+            w-full
+            text-left
+            pl-3
+            pr-4
+            py-2
+            border-l-4 border-transparent
+            text-base
+            font-medium
+            text-gray-600
+            dark:text-dark-med-emphasis
+            hover:text-gray-800
+            dark:hover:text-dark-high-emphasis
+            hover:bg-gray-50
+            dark:hover:bg-gray-700
+            hover:border-gray-300
+            dark:hover:border-gray-500
+            focus:outline-none focus:text-gray-800 focus:bg-gray-50
+            dark:focus:bg-gray-700
+            focus:border-gray-300
+            transition
+          "
+          href="/settings"
+          >Settings</a
+        ><button
+          class="
+            block
+            w-full
+            text-left
+            pl-3
+            pr-4
+            py-2
+            border-l-4 border-transparent
+            text-base
+            font-medium
+            text-gray-600
+            dark:text-dark-med-emphasis
+            hover:text-gray-800
+            dark:hover:text-dark-high-emphasis
+            hover:bg-gray-50
+            dark:hover:bg-gray-700
+            hover:border-gray-300
+            dark:hover:border-gray-500
+            focus:outline-none focus:text-gray-800 focus:bg-gray-50
+            dark:focus:bg-gray-700
+            focus:border-gray-300
+            transition
+          "
+        >
+          Sign Out
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div>
+    <h1>USACO Guide</h1>
   </div>
 </template>
-
-<script>
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  data: () => ({
-    showMenu: false,
-    showProfileMenu: false,
-    links: [
-      { text: 'Home', to: '/' },
-      { text: 'About', to: '/about' },
-    ],
-  }),
-})
-</script>
